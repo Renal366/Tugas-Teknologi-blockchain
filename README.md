@@ -1,273 +1,242 @@
-📘 Panduan Lengkap: Cara Menjalankan Sistem Verifikasi Dokumen di Komputer Anda
-🎯 Untuk Siapa Panduan Ini?
-Untuk Anda yang baru belajar pemrograman web, tidak familiar dengan XAMPP/PHP, atau ingin mencoba sistem ini dari nol.
+# 📘 Sistem Verifikasi Dokumen Digital
 
-🛠️ Langkah 1: Instalasi XAMPP (Web Server Lokal)
-Apa itu XAMPP?
-XAMPP adalah paket yang berisi:
+Sistem berbasis web untuk memverifikasi keaslian dokumen menggunakan hashing SHA-256. Cocok untuk pemula yang ingin belajar web development dengan PHP.
 
-Apache (web server)
+## 🎯 Untuk Siapa?
 
-PHP (bahasa pemrograman sistem ini)
+- Pemula yang baru belajar pemrograman web
+- Belum familiar dengan XAMPP/PHP
+- Ingin mencoba sistem verifikasi dokumen dari nol
 
-MySQL (database, tidak digunakan di sistem ini)
+## ✨ Fitur Utama
 
-phpMyAdmin (tools database)
+- ✅ Upload dokumen (PDF, DOCX, PPTX, dll)
+- ✅ Hashing SHA-256 otomatis
+- ✅ Verifikasi keaslian dokumen
+- ✅ Interface user-friendly
+- ✅ Responsif dan mudah digunakan
 
-Cara Install XAMPP:
-Untuk Windows:
-Download XAMPP dari situs resmi:
+## 🚀 Quick Start
 
-Kunjungi: https://www.apachefriends.org
+### 1. Install XAMPP
 
-Klik "Download" untuk Windows
+#### Windows:
+1. Download dari [Apache Friends](https://www.apachefriends.org)
+2. Jalankan installer
+3. Pilih folder default: `C:\xampp`
+4. Centang semua komponen (Apache, MySQL, PHP, phpMyAdmin)
+5. Selesaikan instalasi
 
-Jalankan installer yang sudah didownload
+#### macOS:
+1. Download XAMPP
+2. Drag ke folder Applications
+3. Jalankan dari Applications
 
-Klik Next > Next
-
-Pilih folder instalasi: Biarkan default (C:\xampp)
-
-Centang semua komponen (Apache, MySQL, PHP, phpMyAdmin)
-
-Selesaikan instalasi
-
-Tunggu sampai selesai
-
-Jangan centang "Learn more about Bitnami"
-
-Klik Finish
-
-Buka XAMPP Control Panel
-
-Cari di Start Menu: "XAMPP Control Panel"
-
-Atau buka C:\xampp\xampp-control.exe
-
-Untuk macOS:
-Download XAMPP dari situs yang sama
-
-Drag aplikasi ke folder Applications
-
-Buka dari Applications folder
-
-Untuk Linux:
-bash
+#### Linux:
+```bash
 sudo apt-get update
 sudo apt-get install apache2 php libapache2-mod-php mysql-server phpmyadmin
-🚀 Langkah 2: Menjalankan XAMPP
-Windows/macOS:
-Buka XAMPP Control Panel
+```
 
-Start Apache (klik tombol "Start" di sebelah Apache)
+### 2. Jalankan XAMPP
 
-Jika berhasil, background akan hijau
+**Windows/macOS:**
+1. Buka XAMPP Control Panel
+2. Klik tombol "Start" di sebelah Apache
+3. Background Apache akan menjadi hijau ✓
 
-Jika ada error port 80/443, biasanya karena Skype/Teams. Tutup aplikasi tersebut.
+**Verifikasi:**
+- Buka browser → ketik `http://localhost`
+- Jika muncul halaman XAMPP, berarti berhasil!
 
-Cek apakah XAMPP berjalan:
-Buka browser (Chrome/Firefox)
+### 3. Setup Proyek
 
-Ketik: http://localhost
+Pilih salah satu cara:
 
-Jika muncul halaman XAMPP, berarti sukses!
+**Cara 1: Download dari GitHub**
+```bash
+1. Download ZIP dari repository
+2. Extract ke folder
+3. Copy folder ke:
+   - Windows: C:\xampp\htdocs\hashing-dokumen
+   - macOS: /Applications/XAMPP/htdocs/hashing-dokumen
+   - Linux: /var/www/html/hashing-dokumen
+```
 
-📂 Langkah 3: Menyiapkan File Proyek
-Cara 1: Download dari GitHub (Jika tersedia)
-bash
-1. Download ZIP dari GitHub
-2. Extract ZIP ke folder
-3. Copy folder "hashing-dokumen" ke:
-   - Windows: C:\xampp\htdocs\
-   - macOS: /Applications/XAMPP/htdocs/
-   - Linux: /var/www/html/
-Cara 2: Buat Manual (Jika tidak ada file)
-Buka folder htdocs:
+**Cara 2: Buat Manual**
+1. Buka folder `htdocs`
+2. Buat folder baru: `hashing-dokumen`
+3. Di dalam folder, buat file:
+   - `upload.php`
+   - `verify.php`
+   - `style.css`
+4. Copy kode ke masing-masing file
+5. Buat folder: `storage`
 
-text
-C:\xampp\htdocs\
-Buat folder baru dengan nama hashing-dokumen
+### 4. Test Sistem
 
-Di dalam folder tersebut, buat 3 file:
+**Test 1: Akses Halaman**
+```
+http://localhost/hashing-dokumen/upload.php
+```
+Jika muncul form upload → ✓ Berhasil!
 
-upload.php
+**Test 2: Upload Dokumen**
+- Pilih file PDF/DOCX/PPTX
+- Klik "Register Document"
+- Jika muncul hash SHA-256 → ✓ Berhasil!
 
-verify.php
+**Test 3: Verifikasi**
+- Buka `http://localhost/hashing-dokumen/verify.php`
+- Upload file yang sama → Harus muncul "DOKUMEN ASLI"
+- Upload file berbeda → Harus muncul "DOKUMEN PALSU"
 
-style.css
+## 🛠️ Troubleshooting
 
-Copy-paste kode dari dokumen yang diberikan ke masing-masing file
-
-🖥️ Langkah 4: Membuat File Manual (Step-by-Step)
-File 1: style.css
-Buka Notepad atau text editor
-
-Copy semua kode CSS dari halaman 1-2 dokumen
-
-Save dengan nama: style.css
-
-Pastikan ekstensi .css, bukan .css.txt
-
-File 2: upload.php
-Buat file baru
-
-Copy kode dari halaman 2-3 dokumen (baris 1-47)
-
-Save dengan nama: upload.php
-
-File 3: verify.php
-Buat file baru
-
-Copy kode dari halaman 3-4 dokumen (baris 1-52)
-
-Save dengan nama: verify.php
-
-File 4: Buat folder storage
-Di dalam folder hashing-dokumen, klik kanan → New → Folder
-
-Beri nama: storage
-
-✅ Langkah 5: Testing Sistem
-Test 1: Akses Halaman
-Pastikan XAMPP Apache sedang running (hijau)
-
-Buka browser
-
-Ketik: http://localhost/hashing-dokumen/upload.php
-
-Jika muncul form upload, berarti sukses!
-
-Test 2: Coba Upload Dokumen
-Di halaman upload, klik "Choose File"
-
-Pilih file PDF/DOCX/PPTX (bisa dokumen apapun)
-
-Klik "Register Document"
-
-Jika muncul hash SHA-256, berarti berhasil!
-
-Test 3: Verifikasi Dokumen
-Buka: http://localhost/hashing-dokumen/verify.php
-
-Upload file yang sama
-
-Harus muncul "DOKUMEN ASLI"
-
-Coba upload file berbeda
-
-Harus muncul "DOKUMEN PALSU"
-
-⚠️ Solusi Masalah Umum
-Masalah 1: Localhost tidak bisa diakses
-text
+### ❌ Localhost tidak bisa diakses
+```
 Solusi:
 1. Cek XAMPP Control Panel, pastikan Apache hijau
-2. Buka Command Prompt, ketik: ping localhost
-3. Jika tidak bisa, coba: 127.0.0.1/hashing-dokumen/upload.php
-Masalah 2: Error saat upload file
-text
+2. Buka Command Prompt → ping localhost
+3. Coba: 127.0.0.1/hashing-dokumen/upload.php
+```
+
+### ❌ Error saat upload file
+```
 Solusi:
 1. Pastikan folder "storage" ada
-2. Cek permission folder (klik kanan → Properties → Security)
-3. Beri full control untuk folder "storage"
-Masalah 3: File tidak bisa disimpan
-text
+2. Klik kanan folder → Properties → Security
+3. Beri full control untuk folder
+```
+
+### ❌ File tidak bisa disimpan (Linux/macOS)
+```bash
+chmod 777 /opt/lampp/htdocs/hashing-dokumen/storage
+```
+
+### ❌ Tampilan berantakan
+```
 Solusi:
-1. Buka XAMPP Control Panel
-2. Klik "Shell" di sebelah kanan
-3. Ketik: chmod 777 /opt/lampp/htdocs/hashing-dokumen/storage
-   (untuk Linux/macOS)
-Masalah 4: Tampilan aneh/berantakan
-text
-Solusi:
-1. Pastikan file style.css ada
-2. Buka browser, tekan F12 → Console
+1. Pastikan file style.css ada di folder proyek
+2. Tekan F12 di browser → Console
 3. Lihat apakah ada error loading CSS
-4. Cek path CSS di HTML: <link rel="stylesheet" href="style.css">
-🎓 Penjelasan Sederhana untuk Pemula
-Apa yang sebenarnya terjadi?
-Upload file → Sistem baca isi file → Hitung "sidik jari digital" (hash)
+```
 
-Simpan sidik jari ke original_hash.txt
+## 📚 Penjelasan Konsep
 
-Verifikasi → Hitung sidik jari file baru → Bandingkan dengan yang tersimpan
+### Bagaimana Cara Kerja?
 
-Jika sama → Dokumen asli
+```
+Upload File
+    ↓
+Sistem membaca isi file
+    ↓
+Hitung "sidik jari digital" (SHA-256 Hash)
+    ↓
+Simpan ke original_hash.txt
+    ↓
+Verifikasi: Hitung hash file baru & bandingkan
+    ↓
+Jika sama → DOKUMEN ASLI
+Jika beda → DOKUMEN PALSU/BERUBAH
+```
 
-Jika beda → Dokumen palsu/berubah
+### Analogi Sederhana
 
-Analoginya:
-File = Dokumen fisik
+| Konsep | Analogi |
+|--------|---------|
+| File | Dokumen fisik |
+| Hash | Cap/stempel basah |
+| Verifikasi | Cocokkan cap dengan database resmi |
 
-Hash = Cap/stempel basah
+## 📱 Alternatif Tanpa XAMPP
 
-Verifikasi = Cocokkan cap dengan database cap resmi
+### Option 1: Online PHP Tester
+- Kunjungi [phptester.net](https://phptester.net/)
+- Copy kode PHP ke editor
+- ⚠️ Sistem file tidak bekerja penuh
 
-📱 Versi Alternatif (Tanpa XAMPP)
-Untuk yang tidak mau install XAMPP:
-Option 1: Online PHP Tester
-Kunjungi: https://phptester.net/
+### Option 2: PHP Built-in Server
+```bash
+# Install PHP saja (bukan XAMPP)
+# Di folder proyek, buka Command Prompt
 
-Copy kode PHP ke editor online
+php -S localhost:8000
 
-Catatan: Sistem file tidak akan bekerja penuh
+# Akses: http://localhost:8000/upload.php
+```
 
-Option 2: PHP Built-in Server
-Install PHP saja (bukan XAMPP)
+## 🔧 Development Lanjutan
 
-Buka Command Prompt di folder proyek
+### Text Editor Rekomendasi
+- Visual Studio Code (gratis) - [Download](https://code.visualstudio.com/)
+- Notepad++
 
-Ketik: php -S localhost:8000
-
-Akses: http://localhost:8000/upload.php
-
-🔧 Tips untuk Development Lanjutan
-Jika mau modifikasi kode:
-Gunakan Visual Studio Code (gratis) atau Notepad++
-
-Untuk debug, tambahkan di kode PHP:
-
-php
+### Debug Mode
+Tambahkan di awal kode PHP:
+```php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-Jika mau deploy ke hosting:
-Pilih hosting yang support PHP (Hostinger, Niagahoster, dll)
+```
 
-Upload semua file ke public_html
+### Deploy ke Hosting
 
-Pastikan folder storage writable
+1. Pilih hosting yang support PHP (Hostinger, Niagahoster, dll)
+2. Upload semua file ke `public_html`
+3. Pastikan folder `storage` writable
+4. Akses via: `namadomain.com/upload.php`
 
-Akses via: namadomain.com/upload.php
+## 📚 Sumber Belajar
 
-📚 Sumber Belajar Tambahan
-Belajar PHP Dasar: W3Schools PHP Tutorial
+- 📖 [W3Schools PHP Tutorial](https://www.w3schools.com/php/)
+- 🎥 [YouTube: Cara Install XAMPP](https://www.youtube.com/results?search_query=install+xampp)
+- 📘 [GitHub Guides](https://guides.github.com/)
+- 💬 [Stack Overflow](https://stackoverflow.com/)
 
-Tutorial XAMPP: YouTube: Cara Install XAMPP
+## 🆘 Butuh Bantuan?
 
-GitHub untuk Pemula: GitHub Guides
+1. Screenshot error yang muncul
+2. Cari di Google dengan kata kunci error
+3. Cek video tutorial di YouTube
+4. Tanya di forum: Stack Overflow, Discord programmer
 
-🆘 Butuh Bantuan?
-Langkah-langkah jika stuck:
-Screenshot error yang muncul
+## 🎓 Tips Testing
 
-Cari di Google dengan kata kunci error
+Coba berbagai skenario:
+- ✓ Upload berbagai jenis file
+- ✓ Modifikasi file yang sudah diupload, lalu verifikasi
+- ✓ Coba dengan file besar (>100MB)
+- ✓ Upload file dengan nama yang sama tapi isi berbeda
 
-Cek video tutorial di YouTube: "Install XAMPP Windows 10"
+## 📋 File Structure
 
-Tanya di forum: Stack Overflow, Discord programmer
+```
+hashing-dokumen/
+├── upload.php          # Halaman upload dokumen
+├── verify.php          # Halaman verifikasi
+├── style.css           # Styling
+├── storage/            # Folder penyimpanan hash
+│   └── original_hash.txt
+└── README.md           # Dokumentasi ini
+```
 
-🎉 Selamat!
-Jika semua berjalan lancar, Anda sekarang memiliki sistem verifikasi dokumen yang berfungsi penuh di komputer lokal Anda!
+## ⚠️ Penting!
 
-Coba-coba:
+⚡ **Sistem ini hanya untuk edukasi dan lingkungan lokal.**
 
-Upload berbagai jenis file
+Untuk produksi/production, perlu pengembangan lebih lanjut:
+- Database yang proper (MySQL/PostgreSQL)
+- Authentication & authorization
+- Security hardening
+- Backup system
+- Error handling yang robust
 
-Modifikasi file yang sudah diupload, lalu verifikasi
+## 🎉 Selamat!
 
-Coba dengan file besar (>100MB)
+Jika semua berjalan lancar, Anda sekarang memiliki sistem verifikasi dokumen yang berfungsi penuh di komputer lokal! 🚀
 
-📍 Ingat: Sistem ini hanya untuk edukasi dan lingkungan lokal. Untuk produksi, perlu pengembangan lebih lanjut!
+**Happy Coding!** 💻✨
 
-Happy Coding! 🚀
+---
 
+**Dibuat untuk pemula. Semoga membantu!** 📚
