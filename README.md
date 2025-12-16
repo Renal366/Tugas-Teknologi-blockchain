@@ -65,7 +65,7 @@ Pilih salah satu cara:
 
 **Cara 2: Buat Manual**
 1. Buka folder `htdocs`
-2. Buat folder baru: `hashing-dokumen`
+2. Buat folder baru: `hashing-dokumen` (Folder bebas ini contoh saja) 
 3. Di dalam folder, buat file:
    - `upload.php`
    - `verify.php`
